@@ -1,21 +1,20 @@
 def validate_password(password):
     if len(password) < 8:
         return False
-    digit = False
-    lower = False
+    res= False
     upper = False
-    
-    for char in password:
-        if char.islower():
-            lower = True
-        elif char.isupper():
+    lower = False
+    digit = False
+
+    for i in password:
+        if i.isupper():
             upper = True
-        elif char.isdigit():
+        elif i.islower():
+            lower = True
+        elif i.isdigit():
             digit = True
-        elif char == " ":
+        elif i == ' ':
             return False
-        
-    if digit and lower and upper:
-        return True
-    else:
-        return False
+    if upper and lower and digit:
+        res= True
+    return res
